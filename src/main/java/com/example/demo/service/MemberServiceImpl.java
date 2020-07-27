@@ -60,7 +60,7 @@ public class MemberServiceImpl implements MemberService {
 		else {
 			memberDao.dojoin(param);
 			rs.put("alertMs", "축하 ");
-			rs.put("reDirectUrl", "./Login");
+			rs.put("reDirectUrl", "/member/login");
 		}
 		
 		return rs;

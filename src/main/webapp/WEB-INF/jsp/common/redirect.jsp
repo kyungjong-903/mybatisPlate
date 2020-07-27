@@ -11,11 +11,10 @@
 	console.log(alertMs)
 	console.log(reDirectUrl)
 	
-	
 	if (alertMs) {
 		alert(alertMs);
 	}
-	
+
 	if (historyBack) {
 		history.back();
 	}

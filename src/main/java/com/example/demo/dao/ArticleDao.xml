@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.dao.ArticleDao">
+
+	<select id="getArticlesCountByBoardId" resultType="int">
+		SELECT COUNT(*)
+		FROM `article`
+		WHERE boardId = #{boardId}
+	</select>
+	
+	<select id="getArticles" resultType="Article">
+		SELECT *
+		FROM `article`
+		WHERE boardId = #{boardId}
+		ORDER BY id DESC
+		LIMIT #{from},
+		#{pageLimit}
+	</select>
+	
+	<insert id="doWrite" parameterType="map" useGeneratedKeys="true"
+		keyProperty="id">
+		INSERT INTO article
+		SET regDate = NOW(),
+		memberId =
+		#{memberId},
+		boardId = #{boardId},
+		hit = 0,
+		title = #{title},
+		body =
+		#{body}
+	</insert>
+	
+	<select id="getArticle" resultType="Article">
+		SELECT *
+		FROM `article`
+		WHERE id = #{articleId}
+	</select>
+	
+	<update id="doModify">
+		UPDATE article
+		SET title = #{title},
+		boardId = #{boardId},
+		body = #{body}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="hitUp">
+		UPDATE article
+		SET
+		hit = hit + 1
+		WHERE id = #{articleId}
+	</update>
+	
+</mapper>

@@ -5,14 +5,18 @@
 
 <html lang="en">
 <head>
-	<meta charset="UTF-8" />
 	<title>Document</title>
 </head>
 <body>
+	${members}
 	<div>
-		<form action="">
-			<input type="text" />
-			<input type="password" />
+		<form action="./doLogin" method="POST">
+			<input type="text" name="loginId"/>
+			<input type="password" name= "loginPw"/>
+			<button type="submit">로그인</button>
+			<a href="./member/Join">
+				<button>회원가입</button>
+			</a>
 		</form>
 	</div>
 </body>

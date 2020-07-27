@@ -8,15 +8,12 @@
 	<title>Document</title>
 </head>
 <body>
-	${members}
 	<div>
-		<form action="./doLogin" method="POST">
-			<input type="text" name="loginId"/>
-			<input type="password" name= "loginPw"/>
-			<button type="submit">로그인</button>
-			<a href="./member/join">
-				<button>회원가입</button>
-			</a>
+		<form action="/member/doJoin" method="POST">
+			<input type="text" name="loginId" placeholder="id" />
+			<input type="password" name="loginPw" placeholder="Pw" />
+			<input type="text" name="name" placeholder="name" />
+			<button type="submit">가입</button>
 		</form>
 	</div>
 </body>
